@@ -97,7 +97,7 @@ I welcome contributions to any of my projects! Each repository includes:
 
 ## 📫 Get In Touch
 
-- **GitHub**: [@jjuanrivvera](https://github.com/jjuanrivvera99)
+- **GitHub**: [@jjuanrivvera99](https://github.com/jjuanrivvera99)
 - **Email**: jjuanrivvera@gmail.com
 - **LinkedIn**: [Connect on LinkedIn](https://linkedin.com/in/jjuanrivvera99)
 - **Twitter**: [@jjuanrivvera](https://twitter.com/jjuanrivvera99)
@@ -128,4 +128,4 @@ If you find my projects helpful, consider:
 
 *Building tools that make developers' lives easier, one commit at a time.*
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=jjuanrivvera&show_icons=true&theme=dark)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=jjuanrivvera99&show_icons=true&theme=dark)
