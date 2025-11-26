@@ -22,9 +22,11 @@ A collaborative platform for designers built with Laravel and Vue.js, featuring 
 
 ## 📦 All Repositories
 
-### 🎓 Educational Technology
+### 🎓 Educational Technology (Canvas LMS)
 - **[canvas-lms-kit](https://github.com/jjuanrivvera/canvas-lms-kit)** - Comprehensive PHP SDK for Canvas LMS API
+- **[canvas-lms-kit-laravel](https://github.com/jjuanrivvera/canvas-lms-kit-laravel)** - Laravel integration package for Canvas LMS Kit
 - **[canvas-lms-kit-demo](https://github.com/jjuanrivvera/canvas-lms-kit-demo)** - Demo application showcasing Canvas LMS Kit features
+- **[canvas-lms-mcp](https://github.com/jjuanrivvera/canvas-lms-mcp)** - Model Context Protocol (MCP) server for Canvas LMS AI integrations
 
 ### 🏗️ Frameworks & Libraries
 - **[awesome-framework](https://github.com/jjuanrivvera/awesome-framework)** - Custom PHP framework with MVC architecture
@@ -34,6 +36,8 @@ A collaborative platform for designers built with Laravel and Vue.js, featuring 
 - **[design-house](https://github.com/jjuanrivvera/design-house)** - Laravel backend for collaborative design platform
 - **[design-house-client](https://github.com/jjuanrivvera/design-house-client)** - Nuxt.js frontend for Design House
 - **[todo-wizard](https://github.com/jjuanrivvera/todo-wizard)** - Advanced task management application
+- **[cv-optimizer](https://github.com/jjuanrivvera/cv-optimizer)** - CV/Resume optimization tool
+- **[website](https://github.com/jjuanrivvera/website)** - Personal portfolio website
 
 ### 🤖 Discord Bots & Tools
 - **[jw-discord-bot](https://github.com/jjuanrivvera/jw-discord-bot)** - Multi-purpose Discord bot
@@ -58,6 +62,7 @@ A collaborative platform for designers built with Laravel and Vue.js, featuring 
 ### Specializations
 - API Development & Integration (REST, GraphQL, WebSockets)
 - Educational Technology (EdTech) Solutions
+- MCP (Model Context Protocol) Development
 - Microservices Architecture
 - Cloud-Native Applications
 - Test-Driven Development (TDD)
@@ -66,7 +71,7 @@ A collaborative platform for designers built with Laravel and Vue.js, featuring 
 
 ## 📊 Organization Statistics
 
-- 🔧 **14+ Active Repositories** across various technologies
+- 🔧 **18+ Active Repositories** across various technologies
 - 📝 **Comprehensive Documentation** for all major projects
 - ✅ **High Code Quality** with automated testing and CI/CD
 - 🤝 **Open Source First** philosophy with community contributions
@@ -75,6 +80,7 @@ A collaborative platform for designers built with Laravel and Vue.js, featuring 
 ## 🏆 Highlights & Achievements
 
 - Canvas LMS Kit: Most comprehensive PHP SDK for Canvas with 95% API coverage
+- Canvas LMS MCP: Canvas LMS integration using Model Context Protocol
 - Active maintainer of multiple open-source projects
 - Contributor to educational technology initiatives
 - Building tools that serve thousands of developers
