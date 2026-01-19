@@ -25,8 +25,9 @@ A collaborative platform for designers built with Laravel and Vue.js, featuring 
 ### 🎓 Educational Technology (Canvas LMS)
 - **[canvas-lms-kit](https://github.com/jjuanrivvera/canvas-lms-kit)** - Comprehensive PHP SDK for Canvas LMS API
 - **[canvas-lms-kit-laravel](https://github.com/jjuanrivvera/canvas-lms-kit-laravel)** - Laravel integration package for Canvas LMS Kit
-- **[canvas-lms-kit-demo](https://github.com/jjuanrivvera/canvas-lms-kit-demo)** - Demo application showcasing Canvas LMS Kit features
 - **[canvas-lms-mcp](https://github.com/jjuanrivvera/canvas-lms-mcp)** - Model Context Protocol (MCP) server for Canvas LMS AI integrations
+- **[canvas-cli](https://github.com/jjuanrivvera/canvas-cli)** - Powerful command-line interface for Canvas LMS built with Go
+- **[homebrew-canvas-cli](https://github.com/jjuanrivvera/homebrew-canvas-cli)** - Homebrew tap for Canvas CLI installation
 
 ### 🏗️ Frameworks & Libraries
 - **[awesome-framework](https://github.com/jjuanrivvera/awesome-framework)** - Custom PHP framework with MVC architecture
@@ -35,6 +36,7 @@ A collaborative platform for designers built with Laravel and Vue.js, featuring 
 ### 🎨 Web Applications
 - **[design-house](https://github.com/jjuanrivvera/design-house)** - Laravel backend for collaborative design platform
 - **[design-house-client](https://github.com/jjuanrivvera/design-house-client)** - Nuxt.js frontend for Design House
+- **[finance-flow](https://github.com/jjuanrivvera/finance-flow)** - Personal finance management application for contractors
 - **[todo-wizard](https://github.com/jjuanrivvera/todo-wizard)** - Advanced task management application
 - **[cv-optimizer](https://github.com/jjuanrivvera/cv-optimizer)** - CV/Resume optimization tool
 - **[website](https://github.com/jjuanrivvera/website)** - Personal portfolio website
@@ -53,25 +55,23 @@ A collaborative platform for designers built with Laravel and Vue.js, featuring 
 ## 💻 Tech Stack & Expertise
 
 ### Languages & Frameworks
-- **Backend**: PHP (Laravel, Symfony), Python (Django, FastAPI), Node.js (Express, NestJS), Ruby (Rails)
-- **Frontend**: JavaScript/TypeScript, React, Vue.js, Nuxt.js, Next.js
-- **Mobile**: React Native, Flutter basics
-- **Database**: MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch
-- **Cloud & DevOps**: AWS, Google Cloud, Docker, Kubernetes, Terraform, CI/CD
+- **Backend**: PHP (Laravel), Node.js (Express), Go (Cobra), TypeScript
+- **Frontend**: JavaScript/TypeScript, React, Vue.js, Nuxt.js, Astro
+- **Database**: MySQL, PostgreSQL, MongoDB, Redis
+- **DevOps**: Docker, GitHub Actions, CI/CD
 
 ### Specializations
-- API Development & Integration (REST, GraphQL, WebSockets)
+- API Development & Integration (REST, WebSockets)
+- CLI Development (Cobra/Go)
 - Educational Technology (EdTech) Solutions
 - MCP (Model Context Protocol) Development
-- Microservices Architecture
-- Cloud-Native Applications
+- Discord Bot Development (Discord.js)
 - Test-Driven Development (TDD)
-- DevOps & Infrastructure as Code
 - Real-time Communication Systems
 
 ## 📊 Organization Statistics
 
-- 🔧 **18+ Active Repositories** across various technologies
+- 🔧 **20 Active Repositories** across various technologies
 - 📝 **Comprehensive Documentation** for all major projects
 - ✅ **High Code Quality** with automated testing and CI/CD
 - 🤝 **Open Source First** philosophy with community contributions
@@ -80,6 +80,7 @@ A collaborative platform for designers built with Laravel and Vue.js, featuring 
 ## 🏆 Highlights & Achievements
 
 - Canvas LMS Kit: Most comprehensive PHP SDK for Canvas with 95% API coverage
+- Canvas CLI: Full-featured command-line interface for Canvas LMS with 280+ commands
 - Canvas LMS MCP: Canvas LMS integration using Model Context Protocol
 - Active maintainer of multiple open-source projects
 - Contributor to educational technology initiatives
