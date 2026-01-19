@@ -12,13 +12,13 @@ A comprehensive PHP SDK for Canvas LMS API integration. Built with modern PHP pr
 - **Coverage**: 95% of Canvas LMS API endpoints implemented
 - **Status**: ✅ Actively maintained with regular updates
 
-### [Design House](https://github.com/jjuanrivvera/design-house)
-A collaborative platform for designers built with Laravel and Vue.js, featuring real-time collaboration and design asset management.
+### [Canvas CLI](https://github.com/jjuanrivvera/canvas-cli)
+A powerful command-line interface for Canvas LMS built with Go. Manage courses, users, assignments, and more directly from your terminal.
 
-- **Backend**: Laravel API with JWT authentication
-- **Frontend**: [Design House Client](https://github.com/jjuanrivvera/design-house-client) - Nuxt.js SPA
-- **Features**: Real-time updates, team collaboration, design versioning
-- **Status**: 🚀 Production-ready
+- **Technologies**: Go, Cobra, Viper, OAuth 2.0 + PKCE
+- **Features**: 280+ commands, batch operations, multiple output formats (table, JSON, YAML, CSV)
+- **Installation**: Available via Homebrew (`brew install jjuanrivvera/canvas-cli/canvas`)
+- **Status**: ✅ Actively maintained with regular updates
 
 ## 📦 All Repositories
 
