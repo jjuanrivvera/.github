@@ -1,4 +1,4 @@
-# Juan Rivera - Full Stack Developer & DevOps Engineer
+# Juan Rivera - Full Stack Developer
 
 Welcome to my GitHub organization! This is where I build and maintain open-source tools and libraries for the developer community.
 
