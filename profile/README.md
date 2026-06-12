@@ -11,7 +11,6 @@ Complete tooling for Canvas LMS integration:
 - **[canvas-cli](https://github.com/jjuanrivvera/canvas-cli)** — Go CLI with 280+ commands, OAuth 2.0 + PKCE. `brew install canvas-cli`
 - **[canvas-lms-kit-laravel](https://github.com/jjuanrivvera/canvas-lms-kit-laravel)** — Laravel wrapper for the SDK
 - **[canvas-lms-mcp](https://github.com/jjuanrivvera/canvas-lms-mcp)** — MCP server for AI integrations (70+ workflow tools)
-- **[canvas-lms-analytics-dashboard](https://github.com/jjuanrivvera/canvas-lms-analytics-dashboard)** — Full-stack analytics demo
 
 ### Developer Tools
 - **[alegra-cli](https://github.com/jjuanrivvera/alegra-cli)** — Go CLI for Alegra accounting API with MCP server
@@ -22,11 +21,10 @@ Complete tooling for Canvas LMS integration:
 ## All Repositories
 
 <details>
-<summary>Canvas LMS (8 repos)</summary>
+<summary>Canvas LMS (7 repos)</summary>
 
 - canvas-lms-kit, canvas-cli, canvas-lms-kit-laravel, canvas-lms-mcp
-- canvas-lms-kit-demo, canvas-lms-kit-laravel-demo
-- canvas-lms-analytics-dashboard, homebrew-canvas-cli
+- canvas-lms-kit-demo, canvas-lms-kit-laravel-demo, homebrew-canvas-cli
 </details>
 
 <details>
