@@ -1,138 +1,75 @@
-# Juan Rivera - Full Stack Developer & DevOps Engineer
+# jjuanrivvera
 
-Welcome to my GitHub organization! This is where I build and maintain open-source tools and libraries for the developer community.
+Open-source tools for Canvas LMS, accounting APIs, and developer productivity.
 
-## 🚀 Featured Projects
+## Star Projects
 
-### [Canvas LMS Kit](https://github.com/jjuanrivvera/canvas-lms-kit)
-A comprehensive PHP SDK for Canvas LMS API integration. Built with modern PHP practices, full test coverage, and extensive documentation.
+### Canvas LMS Ecosystem
+Complete tooling for Canvas LMS integration:
 
-- **Technologies**: PHP 8.1+, Guzzle HTTP, PHPUnit, Docker
-- **Features**: Active Record pattern, DTO transformations, pagination support, file uploads
-- **Coverage**: 95% of Canvas LMS API endpoints implemented
-- **Status**: ✅ Actively maintained with regular updates
+- **[canvas-lms-kit](https://github.com/jjuanrivvera/canvas-lms-kit)** — PHP SDK with 45 APIs, 95% coverage, 964 tests. [Packagist](https://packagist.org/packages/jjuanrivvera/canvas-lms-kit)
+- **[canvas-cli](https://github.com/jjuanrivvera/canvas-cli)** — Go CLI with 280+ commands, OAuth 2.0 + PKCE. `brew install canvas-cli`
+- **[canvas-lms-kit-laravel](https://github.com/jjuanrivvera/canvas-lms-kit-laravel)** — Laravel wrapper for the SDK
+- **[canvas-lms-mcp](https://github.com/jjuanrivvera/canvas-lms-mcp)** — MCP server for AI integrations (70+ workflow tools)
+- **[canvas-lms-analytics-dashboard](https://github.com/jjuanrivvera/canvas-lms-analytics-dashboard)** — Full-stack analytics demo
 
-### [Canvas CLI](https://github.com/jjuanrivvera/canvas-cli)
-A powerful command-line interface for Canvas LMS built with Go. Manage courses, users, assignments, and more directly from your terminal.
+### Developer Tools
+- **[alegra-cli](https://github.com/jjuanrivvera/alegra-cli)** — Go CLI for Alegra accounting API with MCP server
 
-- **Technologies**: Go, Cobra, Viper, OAuth 2.0 + PKCE
-- **Features**: 280+ commands, batch operations, multiple output formats (table, JSON, YAML, CSV)
-- **Installation**: Available via Homebrew (`brew install jjuanrivvera/canvas-cli/canvas`)
-- **Status**: ✅ Actively maintained with regular updates
+### Web & Portfolio
+- **[website](https://github.com/jjuanrivvera/website)** — Astro portfolio with i18n (EN/ES/PT), blog, GA4
 
-## 📦 All Repositories
+## All Repositories
 
-### 🎓 Educational Technology (Canvas LMS)
-- **[canvas-lms-kit](https://github.com/jjuanrivvera/canvas-lms-kit)** - Comprehensive PHP SDK for Canvas LMS API
-- **[canvas-lms-kit-laravel](https://github.com/jjuanrivvera/canvas-lms-kit-laravel)** - Laravel integration package for Canvas LMS Kit
-- **[canvas-lms-mcp](https://github.com/jjuanrivvera/canvas-lms-mcp)** - Model Context Protocol (MCP) server for Canvas LMS AI integrations
-- **[canvas-cli](https://github.com/jjuanrivvera/canvas-cli)** - Powerful command-line interface for Canvas LMS built with Go
-- **[homebrew-canvas-cli](https://github.com/jjuanrivvera/homebrew-canvas-cli)** - Homebrew tap for Canvas CLI installation
+<details>
+<summary>Canvas LMS (8 repos)</summary>
 
-### 🏗️ Frameworks & Libraries
-- **[awesome-framework](https://github.com/jjuanrivvera/awesome-framework)** - Custom PHP framework with MVC architecture
-- **[awesome-framework-core](https://github.com/jjuanrivvera/awesome-framework-core)** - Core components and utilities for Awesome Framework
+- canvas-lms-kit, canvas-cli, canvas-lms-kit-laravel, canvas-lms-mcp
+- canvas-lms-kit-demo, canvas-lms-kit-laravel-demo
+- canvas-lms-analytics-dashboard, homebrew-canvas-cli
+</details>
 
-### 🎨 Web Applications
-- **[design-house](https://github.com/jjuanrivvera/design-house)** - Laravel backend for collaborative design platform
-- **[design-house-client](https://github.com/jjuanrivvera/design-house-client)** - Nuxt.js frontend for Design House
-- **[finance-flow](https://github.com/jjuanrivvera/finance-flow)** - Personal finance management application for contractors
-- **[todo-wizard](https://github.com/jjuanrivvera/todo-wizard)** - Advanced task management application
-- **[cv-optimizer](https://github.com/jjuanrivvera/cv-optimizer)** - CV/Resume optimization tool
-- **[website](https://github.com/jjuanrivvera/website)** - Personal portfolio website
+<details>
+<summary>Developer Tools (3 repos)</summary>
 
-### 🤖 Discord Bots & Tools
-- **[jw-discord-bot](https://github.com/jjuanrivvera/jw-discord-bot)** - Multi-purpose Discord bot
-- **[jw-discord-api](https://github.com/jjuanrivvera/jw-discord-api)** - RESTful API backend for Discord bot
-- **[jw-discord-frontend](https://github.com/jjuanrivvera/jw-discord-frontend)** - Web dashboard for Discord bot management
-- **[open-translator-discord-bot](https://github.com/jjuanrivvera/open-translator-discord-bot)** - Real-time translation bot for Discord servers
-- **[tf-critics-discord-bot](https://github.com/jjuanrivvera/tf-critics-discord-bot)** - Review and critique bot for Discord
+- alegra-cli, cv-optimizer, daily-text-epub-to-json
+</details>
 
-### 🛠️ Utilities & Tools
-- **[daily-text-epub-to-json](https://github.com/jjuanrivvera/daily-text-epub-to-json)** - EPUB to JSON converter for daily text processing
-- **[demo-repository](https://github.com/jjuanrivvera/demo-repository)** - Template repository for demonstrations and testing
+<details>
+<summary>Web Applications (4 repos)</summary>
 
-## 💻 Tech Stack & Expertise
+- website, finance-flow, todo-wizard, design-house (+ client)
+</details>
 
-### Languages & Frameworks
-- **Backend**: PHP (Laravel), Node.js (Express), Go (Cobra), TypeScript
-- **Frontend**: JavaScript/TypeScript, React, Vue.js, Nuxt.js, Astro
-- **Database**: MySQL, PostgreSQL, MongoDB, Redis
-- **DevOps**: Docker, GitHub Actions, CI/CD
+<details>
+<summary>Discord Bots (5 repos) ⚠️ Legacy - Discord.js v12</summary>
 
-### Specializations
-- API Development & Integration (REST, WebSockets)
-- CLI Development (Cobra/Go)
-- Educational Technology (EdTech) Solutions
-- MCP (Model Context Protocol) Development
-- Discord Bot Development (Discord.js)
-- Test-Driven Development (TDD)
-- Real-time Communication Systems
+- jw-discord-bot (+ api, frontend)
+- open-translator-discord-bot, tf-critics-discord-bot
+</details>
 
-## 📊 Organization Statistics
+<details>
+<summary>Frameworks (2 repos) ⚠️ Experimental</summary>
 
-- 🔧 **20 Active Repositories** across various technologies
-- 📝 **Comprehensive Documentation** for all major projects
-- ✅ **High Code Quality** with automated testing and CI/CD
-- 🤝 **Open Source First** philosophy with community contributions
-- 🚀 **Production-Ready** solutions used in real-world applications
+- awesome-framework, awesome-framework-core
+</details>
 
-## 🏆 Highlights & Achievements
+## Tech Stack
 
-- Canvas LMS Kit: Most comprehensive PHP SDK for Canvas with 95% API coverage
-- Canvas CLI: Full-featured command-line interface for Canvas LMS with 280+ commands
-- Canvas LMS MCP: Canvas LMS integration using Model Context Protocol
-- Active maintainer of multiple open-source projects
-- Contributor to educational technology initiatives
-- Building tools that serve thousands of developers
+**Languages**: PHP, Go, TypeScript, Python, JavaScript  
+**Frameworks**: Laravel, FastAPI, Django, Astro, React, Vue.js  
+**Cloud**: GCP, AWS, Cloudflare  
+**Databases**: PostgreSQL, MySQL, MongoDB, Redis
 
-## 🤝 Contributing
-
-I welcome contributions to any of my projects! Each repository includes:
-- 📋 Code of Conduct
-- 📖 Contributing Guidelines
-- 🐛 Issue Templates
-- 🔄 Pull Request Process
-- 💬 Active community support
-
-### How to Contribute
-1. Fork the repository you're interested in
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📫 Get In Touch
+## Contact
 
 - **GitHub**: [@jjuanrivvera99](https://github.com/jjuanrivvera99)
+- **LinkedIn**: [jjuanrivvera99](https://linkedin.com/in/jjuanrivvera99)
+- **Website**: [jjuanrivvera.com](https://jjuanrivvera.com)
 - **Email**: jjuanrivvera@gmail.com
-- **LinkedIn**: [Connect on LinkedIn](https://linkedin.com/in/jjuanrivvera99)
-- **Twitter**: [@jjuanrivvera](https://twitter.com/jjuanrivvera99)
-
-## 💼 Professional Services
-
-Available for:
-- API Integration Consulting
-- Educational Technology Solutions
-- Cloud Architecture Design
-- Custom Development Projects
-- Technical Training & Workshops
-
-## 📄 License
-
-Most projects in this organization are open source and available under the MIT License. Please check individual repositories for specific licensing information.
-
-## 🌟 Support My Work
-
-If you find my projects helpful, consider:
-- ⭐ Starring the repositories you use
-- 🐛 Reporting issues and suggesting features
-- 🤝 Contributing code or documentation
-- 💬 Sharing with your network
-- ☕ [Sponsoring my work](https://github.com/sponsors/jjuanrivvera99)
 
 ---
 
-*Building tools that make developers' lives easier, one commit at a time.*
+*Most projects are MIT licensed. Check individual repos for details.*
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=jjuanrivvera99&show_icons=true&theme=dark)
