@@ -1,36 +1,55 @@
 # jjuanrivvera
 
-Open-source tools for Canvas LMS, accounting APIs, and developer productivity.
+Open-source developer tools: agent-ready CLIs for real-world APIs, Canvas LMS libraries, and the factory that builds them.
 
 ## Star Projects
 
+### CLI Factory
+
+- **[cliwright](https://github.com/jjuanrivvera/cliwright)** — a spec-gated CLI factory. Point it at any REST API and it forges a complete Go + Cobra CLI — keyring auth, named profiles, MCP server, agent guard, CI/CD, signed releases — looping until a deterministic acceptance gate (`make verify`) passes.
+
+CLIs built or hardened with the playbook:
+
+| CLI | API | Highlights |
+|---|---|---|
+| [tgctl](https://github.com/jjuanrivvera/tgctl) | Telegram Bot API | messages, chats, webhooks, command menu, MCP server, agent guard |
+| [n8nctl](https://github.com/jjuanrivvera/n8n-cli) | n8n | multi-instance profiles, GitOps apply/lint/diff, cross-instance promotion |
+| [lsqueezy](https://github.com/jjuanrivvera/lemon-squeezy-cli) | Lemon Squeezy | stores, orders, subscriptions, license keys; JSON:API flattened to flat records |
+| [alegra-cli](https://github.com/jjuanrivvera/alegra-cli) | Alegra accounting | invoices, payments, DIAN/SAT e-invoicing, `--dry-run` on every command |
+| [canvas-cli](https://github.com/jjuanrivvera/canvas-cli) | Canvas LMS | 280+ commands, OAuth 2.0 + PKCE, interactive REPL |
+| [adguard-cli](https://github.com/jjuanrivvera/adguard-cli) | AdGuard Home | 90%+ of the 81 API operations; the missing CLI for AdGuard Home |
+
+They ship with Homebrew taps and Scoop buckets, cosign-signed releases with SBOMs, and MCP servers so AI agents can drive them safely.
+
+### Agent Infrastructure
+
+- **[tgctl-claude-channel](https://github.com/jjuanrivvera/tgctl-claude-channel)** — drive a Claude Code agent from Telegram: text, polls, buttons, media, and tool-permission approvals from your phone. Every Bot API call goes through `tgctl`.
+
 ### Canvas LMS Ecosystem
-Complete tooling for Canvas LMS integration:
 
 - **[canvas-lms-kit](https://github.com/jjuanrivvera/canvas-lms-kit)** — PHP SDK with 45 APIs, 95% coverage, 964 tests. [Packagist](https://packagist.org/packages/jjuanrivvera/canvas-lms-kit)
 - **[canvas-cli](https://github.com/jjuanrivvera/canvas-cli)** — Go CLI with 280+ commands, OAuth 2.0 + PKCE. `brew install canvas-cli`
 - **[canvas-lms-kit-laravel](https://github.com/jjuanrivvera/canvas-lms-kit-laravel)** — Laravel wrapper for the SDK
-- **[canvas-lms-mcp](https://github.com/jjuanrivvera/canvas-lms-mcp)** — MCP server for AI integrations (70+ workflow tools)
-
-### Developer Tools
-- **[alegra-cli](https://github.com/jjuanrivvera/alegra-cli)** — Go CLI for Alegra accounting API with MCP server
 
 ### Web & Portfolio
+
 - **[website](https://github.com/jjuanrivvera/website)** — Astro portfolio with i18n (EN/ES/PT), blog, GA4
 
 ## All Repositories
 
 <details>
-<summary>Canvas LMS (7 repos)</summary>
+<summary>CLI tools (8 repos)</summary>
 
-- canvas-lms-kit, canvas-cli, canvas-lms-kit-laravel, canvas-lms-mcp
-- canvas-lms-kit-demo, canvas-lms-kit-laravel-demo, homebrew-canvas-cli
+- cliwright, tgctl, n8n-cli, lemon-squeezy-cli, alegra-cli, canvas-cli, adguard-cli
+- tgctl-claude-channel
+- Plus Homebrew taps and Scoop buckets for each distributed CLI
 </details>
 
 <details>
-<summary>Developer Tools (3 repos)</summary>
+<summary>Canvas LMS (6 repos)</summary>
 
-- alegra-cli, cv-optimizer, daily-text-epub-to-json
+- canvas-lms-kit, canvas-cli, canvas-lms-kit-laravel
+- canvas-lms-kit-demo, canvas-lms-kit-laravel-demo, homebrew-canvas-cli
 </details>
 
 <details>
@@ -54,9 +73,9 @@ Complete tooling for Canvas LMS integration:
 
 ## Tech Stack
 
-**Languages**: PHP, Go, TypeScript, Python, JavaScript  
-**Frameworks**: Laravel, FastAPI, Django, Astro, React, Vue.js  
-**Cloud**: GCP, AWS, Cloudflare  
+**Languages**: Go, PHP, TypeScript, Python, JavaScript
+**Frameworks**: Cobra, Laravel, FastAPI, Django, Astro, React, Vue.js
+**Cloud**: GCP, AWS, Cloudflare
 **Databases**: PostgreSQL, MySQL, MongoDB, Redis
 
 ## Contact
@@ -69,5 +88,3 @@ Complete tooling for Canvas LMS integration:
 ---
 
 *Most projects are MIT licensed. Check individual repos for details.*
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=jjuanrivvera99&show_icons=true&theme=dark)
