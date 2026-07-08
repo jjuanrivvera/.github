@@ -13,6 +13,7 @@ CLIs built or hardened with the playbook:
 | CLI | API | Highlights |
 |---|---|---|
 | [tgctl](https://github.com/jjuanrivvera/tgctl) | Telegram Bot API | messages, chats, webhooks, command menu, MCP server, agent guard |
+| [slackctl](https://github.com/jjuanrivvera/slackctl) | Slack | live event stream (Socket Mode/RTM), local SQLite store + search, MCP server, agent guard |
 | [n8nctl](https://github.com/jjuanrivvera/n8n-cli) | n8n | multi-instance profiles, GitOps apply/lint/diff, cross-instance promotion |
 | [lsqueezy](https://github.com/jjuanrivvera/lemon-squeezy-cli) | Lemon Squeezy | stores, orders, subscriptions, license keys; JSON:API flattened to flat records |
 | [alegra-cli](https://github.com/jjuanrivvera/alegra-cli) | Alegra accounting | invoices, payments, DIAN/SAT e-invoicing, `--dry-run` on every command |
@@ -23,6 +24,7 @@ They ship with Homebrew taps and Scoop buckets, cosign-signed releases with SBOM
 
 ### Agent Infrastructure
 
+- **[event-driven-claude](https://github.com/jjuanrivvera/event-driven-claude)** — a transport-agnostic channel for Claude Code. It opens a local, secret-gated `/inject` endpoint, so any process (a cron, a file watcher, another agent) can push an event that shows up as a turn in a running session. The session sleeps for free and wakes only when something real happens, no polling.
 - **[tgctl-claude-channel](https://github.com/jjuanrivvera/tgctl-claude-channel)** — drive a Claude Code agent from Telegram: text, polls, buttons, media, and tool-permission approvals from your phone. Every Bot API call goes through `tgctl`.
 
 ### Canvas LMS Ecosystem
@@ -38,37 +40,37 @@ They ship with Homebrew taps and Scoop buckets, cosign-signed releases with SBOM
 ## All Repositories
 
 <details>
-<summary>CLI tools (8 repos)</summary>
+<summary>CLIs & agent tooling (10 repos)</summary>
 
-- cliwright, tgctl, n8n-cli, lemon-squeezy-cli, alegra-cli, canvas-cli, adguard-cli
-- tgctl-claude-channel
+- cliwright, tgctl, slackctl, n8n-cli, lemon-squeezy-cli, alegra-cli, canvas-cli, adguard-cli
+- event-driven-claude, tgctl-claude-channel
 - Plus Homebrew taps and Scoop buckets for each distributed CLI
 </details>
 
 <details>
-<summary>Canvas LMS (6 repos)</summary>
+<summary>Canvas LMS (4 repos)</summary>
 
 - canvas-lms-kit, canvas-cli, canvas-lms-kit-laravel
-- canvas-lms-kit-demo, canvas-lms-kit-laravel-demo, homebrew-canvas-cli
+- canvas-lms-kit-laravel-demo
 </details>
 
 <details>
-<summary>Web Applications (4 repos)</summary>
+<summary>Web Applications (2 repos)</summary>
 
-- website, finance-flow, todo-wizard, design-house (+ client)
+- website, design-house
 </details>
 
 <details>
-<summary>Discord Bots (5 repos) ⚠️ Legacy - Discord.js v12</summary>
+<summary>Discord Bots (4 repos) ⚠️ Legacy - Discord.js v12</summary>
 
-- jw-discord-bot (+ api, frontend)
+- jw-discord-bot (+ api)
 - open-translator-discord-bot, tf-critics-discord-bot
 </details>
 
 <details>
-<summary>Frameworks (2 repos) ⚠️ Experimental</summary>
+<summary>Frameworks (1 repo) ⚠️ Experimental</summary>
 
-- awesome-framework, awesome-framework-core
+- awesome-framework-core
 </details>
 
 ## Tech Stack
