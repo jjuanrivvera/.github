@@ -49,8 +49,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v6
         with:
           go-version-file: go.mod
       - run: gofmt -l . | tee /dev/stderr | (! read)
@@ -66,8 +66,8 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v6
         with:
           go-version-file: go.mod
       - name: govulncheck (blocking)
@@ -86,8 +86,8 @@ jobs:
         os: ${{ fromJSON(inputs.os-matrix) }}
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v6
         with:
           go-version-file: go.mod
       - run: go test -race ${{ inputs.coverpkg && '-coverpkg=./...' || '' }} ./... -coverprofile=coverage.out
@@ -106,16 +106,16 @@ jobs:
     if: ${{ inputs.run-build }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0 # tags, so goreleaser derives a real version (not 0.0.0-SNAPSHOT)
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version-file: go.mod
       - uses: anchore/sbom-action/download-syft@v0 # syft on PATH so the SBOM step can't fail
-      - uses: goreleaser/goreleaser-action@v6
+      - uses: goreleaser/goreleaser-action@v7
         with:
           args: check
-      - uses: goreleaser/goreleaser-action@v6
+      - uses: goreleaser/goreleaser-action@v7
         with:
           args: release --snapshot --clean --skip=sign,docker
