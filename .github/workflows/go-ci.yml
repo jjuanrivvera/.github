@@ -33,6 +33,10 @@ on:
         description: "Run `make docs-gen` and fail if the generated docs drift from what's committed."
         type: boolean
         default: true
+      run-build:
+        description: "Run the goreleaser check + snapshot build job (turn off for repos whose .goreleaser config still uses deprecated properties, until it's modernized)."
+        type: boolean
+        default: true
       os-matrix:
         description: "JSON array of runner OSes for the test job."
         type: string
@@ -92,6 +96,7 @@ jobs:
         run: ./scripts/cover-check.sh ${{ inputs.coverage-threshold }}
 
   build:
+    if: ${{ inputs.run-build }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
