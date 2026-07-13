@@ -10,6 +10,11 @@ name: Release
 
 on:
   workflow_call:
+    inputs:
+      promote-main:
+        description: "After releasing, fast-forward the default branch to the tagged commit (git-flow: releases are tagged on develop, so main must be kept current). Fails loudly if main has diverged. Off by default."
+        type: boolean
+        default: false
     secrets:
       HOMEBREW_TAP_TOKEN:
         required: false # repo-scoped PAT to push brew/scoop manifests to the separate tap/bucket repos
@@ -44,3 +49,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+
+      # git-flow repos (promote-main: true): keep the default branch pointing at the released
+      # commit so it never falls behind a published release. Fast-forward only — fails loudly if
+      # main diverged. Reuses the fetch-depth:0 checkout above.
+      - name: Promote main to the released commit
+        if: ${{ inputs.promote-main && !contains(github.ref_name, '-') }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          if git merge-base --is-ancestor origin/main HEAD; then
+            git push origin "HEAD:refs/heads/main"
+            echo "Fast-forwarded main to ${GITHUB_REF_NAME}"
+          else
+            echo "::error::main is not an ancestor of ${GITHUB_REF_NAME}; cannot fast-forward — promote main manually."
+            exit 1
+          fi
