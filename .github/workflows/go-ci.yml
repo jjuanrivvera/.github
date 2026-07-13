@@ -93,7 +93,14 @@ jobs:
       - run: go test -race ${{ inputs.coverpkg && '-coverpkg=./...' || '' }} ./... -coverprofile=coverage.out
       - name: coverage gate (ubuntu only)
         if: ${{ inputs.coverage-threshold != '' && matrix.os == 'ubuntu-latest' }}
-        run: ./scripts/cover-check.sh ${{ inputs.coverage-threshold }}
+        # Inlined rather than ./scripts/cover-check.sh so the gate works for every repo, including
+        # those without that script. Identical computation: the total% from `go tool cover -func`.
+        run: |
+          pct=$(go tool cover -func=coverage.out | awk '/^total:/ { gsub(/%/,"",$3); print $3 }')
+          awk -v p="$pct" -v t="${{ inputs.coverage-threshold }}" 'BEGIN {
+            if (p+0 < t+0) { printf "✗ coverage %.1f%% < %s%%\n", p, t; exit 1 }
+            printf "✓ coverage %.1f%% ≥ %s%%\n", p, t
+          }'
 
   build:
     if: ${{ inputs.run-build }}
