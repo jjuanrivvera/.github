@@ -21,6 +21,10 @@ on:
         description: "Minimum coverage % enforced by scripts/cover-check.sh; empty string skips the gate."
         type: string
         default: "80"
+      coverpkg:
+        description: "Add -coverpkg=./... so cross-package integration tests are credited (repos whose coverage relies on integration tests, e.g. a commands_test that drives internal/api)."
+        type: boolean
+        default: false
       run-gosec:
         description: "Run the gosec high-severity gate."
         type: boolean
@@ -82,7 +86,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-      - run: go test -race ./... -coverprofile=coverage.out
+      - run: go test -race ${{ inputs.coverpkg && '-coverpkg=./...' || '' }} ./... -coverprofile=coverage.out
       - name: coverage gate (ubuntu only)
         if: ${{ inputs.coverage-threshold != '' && matrix.os == 'ubuntu-latest' }}
         run: ./scripts/cover-check.sh ${{ inputs.coverage-threshold }}
