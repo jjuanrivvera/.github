@@ -1,0 +1,105 @@
+# go-ci.yml — the fleet-canonical CI, reusable across every cliwright Go CLI.
+#
+# Callers replace their own ci.yml jobs with a single `uses:` of this file, so CI policy for the
+# whole fleet lives in ONE place. To change how the fleet lints/tests/scans, edit this file — not
+# N repos.
+#
+# Two deliberate choices, each a lesson paid for once:
+#   1. go-version-file: go.mod (NOT go-version: stable). `stable` silently grabs the newest Go, so
+#      govulncheck runs against an already-patched stdlib and stays green even when the repo's
+#      declared toolchain floor is behind — the CVE hides. Reading the floor from go.mod makes CI
+#      test what users actually build, and go red when the floor needs a bump.
+#   2. Build golangci-lint / gosec / govulncheck FROM SOURCE with this job's Go (@latest), never the
+#      prebuilt actions. The prebuilt binaries lag the toolchain and reject a module already on the
+#      next Go release ("configuration contains invalid elements").
+name: Go CI
+
+on:
+  workflow_call:
+    inputs:
+      coverage-threshold:
+        description: "Minimum coverage % enforced by scripts/cover-check.sh; empty string skips the gate."
+        type: string
+        default: "80"
+      run-gosec:
+        description: "Run the gosec high-severity gate."
+        type: boolean
+        default: true
+      run-docs-check:
+        description: "Run `make docs-gen` and fail if the generated docs drift from what's committed."
+        type: boolean
+        default: true
+      os-matrix:
+        description: "JSON array of runner OSes for the test job."
+        type: string
+        default: '["ubuntu-latest", "macos-latest", "windows-latest"]'
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: gofmt -l . | tee /dev/stderr | (! read)
+      - run: go vet ./...
+      - name: golangci-lint (built from source with this job's Go)
+        run: |
+          go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
+          golangci-lint run ./...
+      - name: docs-gen drift check
+        if: ${{ inputs.run-docs-check }}
+        run: make docs-gen && git diff --exit-code
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: govulncheck (blocking)
+        run: |
+          go install golang.org/x/vuln/cmd/govulncheck@latest
+          govulncheck ./...
+      - name: gosec (high-severity gate)
+        if: ${{ inputs.run-gosec }}
+        run: |
+          go install github.com/securego/gosec/v2/cmd/gosec@latest
+          gosec -severity high -confidence medium ./...
+
+  test:
+    strategy:
+      matrix:
+        os: ${{ fromJSON(inputs.os-matrix) }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: go test -race ./... -coverprofile=coverage.out
+      - name: coverage gate (ubuntu only)
+        if: ${{ inputs.coverage-threshold != '' && matrix.os == 'ubuntu-latest' }}
+        run: ./scripts/cover-check.sh ${{ inputs.coverage-threshold }}
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # tags, so goreleaser derives a real version (not 0.0.0-SNAPSHOT)
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - uses: anchore/sbom-action/download-syft@v0 # syft on PATH so the SBOM step can't fail
+      - uses: goreleaser/goreleaser-action@v6
+        with:
+          args: check
+      - uses: goreleaser/goreleaser-action@v6
+        with:
+          args: release --snapshot --clean --skip=sign,docker
