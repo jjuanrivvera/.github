@@ -1,0 +1,46 @@
+# go-release.yml — the fleet-canonical release pipeline, reusable across the cliwright Go CLIs.
+# Callers replace their release.yml body with a single `uses:` of this file, so the GoReleaser
+# action version, cosign/syft setup, and go-version handling live in ONE place instead of drifting
+# per repo (this fleet had goreleaser-action v6/v7 and cosign-installer v3/v4 scattered around).
+#
+# The GoReleaser CONFIG (.goreleaser.yaml) stays per-repo and is already validated on every push by
+# the reusable go-ci build job (`goreleaser check` + snapshot). This workflow only wires the
+# publish: real `release --clean`, keyless cosign signing, SBOM, GHCR, and the brew/scoop bumps.
+name: Release
+
+on:
+  workflow_call:
+    secrets:
+      HOMEBREW_TAP_TOKEN:
+        required: false # repo-scoped PAT to push brew/scoop manifests to the separate tap/bucket repos
+
+permissions:
+  contents: write # create the GitHub release
+  packages: write # push the Docker image to GHCR (if the goreleaser config builds one)
+  id-token: write # cosign keyless signing via OIDC
+
+jobs:
+  release:
+    # Skip pre-releases (v1.2.3-rc1) and CI probe tags (v0.0.0-citest): release only from clean tags.
+    if: ${{ !contains(github.ref_name, '-') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-go@v5
+        with: { go-version-file: go.mod }
+      - uses: docker/setup-buildx-action@v3
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: sigstore/cosign-installer@v3
+      - uses: anchore/sbom-action/download-syft@v0
+      - uses: goreleaser/goreleaser-action@v6
+        with:
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
