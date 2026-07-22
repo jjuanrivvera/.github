@@ -7,6 +7,7 @@ Open-source developer tools: agent-ready CLIs for real-world APIs, Canvas LMS li
 ### CLI Factory
 
 - **[cliwright](https://github.com/jjuanrivvera/cliwright)** — a spec-gated CLI factory. Point it at any REST API and it forges a complete Go + Cobra CLI — keyring auth, named profiles, MCP server, agent guard, CI/CD, signed releases — looping until a deterministic acceptance gate (`make verify`) passes.
+- **[cliwright-showcase](https://github.com/jjuanrivvera/cliwright-showcase)** — registry + showcase site for CLIs built with cliwright. Add yours with a PR.
 
 CLIs built or hardened with the playbook:
 
@@ -19,6 +20,12 @@ CLIs built or hardened with the playbook:
 | [alegra-cli](https://github.com/jjuanrivvera/alegra-cli) | Alegra accounting | invoices, payments, DIAN/SAT e-invoicing, `--dry-run` on every command |
 | [canvas-cli](https://github.com/jjuanrivvera/canvas-cli) | Canvas LMS | 280+ commands, OAuth 2.0 + PKCE, interactive REPL |
 | [adguard-cli](https://github.com/jjuanrivvera/adguard-cli) | AdGuard Home | 90%+ of the 81 API operations; the missing CLI for AdGuard Home |
+| [garminctl](https://github.com/jjuanrivvera/garminctl) | Garmin Connect | health + activity data, keyring auth with automatic OAuth2 refresh |
+| [wootctl](https://github.com/jjuanrivvera/wootctl) | Chatwoot | 144/144 API operations, profiles, keyring auth, agent guardrails |
+| [ms365](https://github.com/jjuanrivvera/ms365-cli) | Microsoft 365 (Graph) | Outlook mail, calendar, profile; multi-account device-code auth |
+| [remoteok](https://github.com/jjuanrivvera/remoteok-cli) | RemoteOK | remote-job search with attribution built in |
+| [torre](https://github.com/jjuanrivvera/torre-cli) | Torre.ai | job/people search, public genomes |
+| [linkedin](https://github.com/jjuanrivvera/linkedin-cli) | LinkedIn Voyager (unofficial) | read-only job search, borrow-the-browser-session auth, ban-safety pacing |
 
 They ship with Homebrew taps and Scoop buckets, cosign-signed releases with SBOMs, and MCP servers so AI agents can drive them safely.
 
@@ -40,18 +47,19 @@ They ship with Homebrew taps and Scoop buckets, cosign-signed releases with SBOM
 ## All Repositories
 
 <details>
-<summary>CLIs & agent tooling (10 repos)</summary>
+<summary>CLIs & agent tooling (17 repos)</summary>
 
-- cliwright, tgctl, slackctl, n8n-cli, lemon-squeezy-cli, alegra-cli, canvas-cli, adguard-cli
+- cliwright, cliwright-showcase
+- tgctl, slackctl, n8n-cli, lemon-squeezy-cli, alegra-cli, canvas-cli, adguard-cli, garminctl, wootctl, ms365-cli, remoteok-cli, torre-cli, linkedin-cli
 - event-driven-claude, tgctl-claude-channel
 - Plus Homebrew taps and Scoop buckets for each distributed CLI
 </details>
 
 <details>
-<summary>Canvas LMS (4 repos)</summary>
+<summary>Canvas LMS (5 repos)</summary>
 
 - canvas-lms-kit, canvas-cli, canvas-lms-kit-laravel
-- canvas-lms-kit-laravel-demo
+- canvas-lms-mcp, canvas-lms-analytics-dashboard
 </details>
 
 <details>
