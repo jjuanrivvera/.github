@@ -31,7 +31,7 @@ They ship with Homebrew taps and Scoop buckets, cosign-signed releases with SBOM
 
 ### Agent Infrastructure
 
-- **[event-driven-claude](https://github.com/jjuanrivvera/event-driven-claude)** — a transport-agnostic channel for Claude Code. It opens a local, secret-gated `/inject` endpoint, so any process (a cron, a file watcher, another agent) can push an event that shows up as a turn in a running session. The session sleeps for free and wakes only when something real happens, no polling.
+- **[edc](https://github.com/jjuanrivvera/edc)** — a transport-agnostic event injector for Claude Code, Codex & OpenCode, and half of [Plexus](https://github.com/jjuanrivvera/plexus). It opens a local, secret-gated `/inject` endpoint, so any process (a cron, a file watcher, another agent) can push an event that shows up as a turn in a running session. The session sleeps for free and wakes only when something real happens, no polling.
 - **[tgctl-claude-channel](https://github.com/jjuanrivvera/tgctl-claude-channel)** — drive a Claude Code agent from Telegram: text, polls, buttons, media, and tool-permission approvals from your phone. Every Bot API call goes through `tgctl`.
 
 ### Canvas LMS Ecosystem
@@ -51,7 +51,7 @@ They ship with Homebrew taps and Scoop buckets, cosign-signed releases with SBOM
 
 - cliwright, cliwright-showcase
 - tgctl, slackctl, n8n-cli, lemon-squeezy-cli, alegra-cli, canvas-cli, adguard-cli, garminctl, wootctl, ms365-cli, remoteok-cli, torre-cli, linkedin-cli
-- event-driven-claude, tgctl-claude-channel
+- edc, tgctl-claude-channel
 - Plus Homebrew taps and Scoop buckets for each distributed CLI
 </details>
 
