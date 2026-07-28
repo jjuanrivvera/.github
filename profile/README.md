@@ -19,6 +19,9 @@ CLIs built or hardened with the playbook:
 | [alegra-cli](https://github.com/jjuanrivvera/alegra-cli) | Alegra accounting | invoices, payments, DIAN/SAT e-invoicing, `--dry-run` on every command |
 | [canvas-cli](https://github.com/jjuanrivvera/canvas-cli) | Canvas LMS | 280+ commands, OAuth 2.0 + PKCE, interactive REPL |
 | [adguard-cli](https://github.com/jjuanrivvera/adguard-cli) | AdGuard Home | 90%+ of the 81 API operations; the missing CLI for AdGuard Home |
+| [garminctl](https://github.com/jjuanrivvera/garminctl) | Garmin Connect | keyring token storage, multi-account, offline SQLite store, MCP server |
+| [wootctl](https://github.com/jjuanrivvera/wootctl) | Chatwoot | 144/144 documented operations, backup/restore, cross-instance sync |
+| [atlassian](https://github.com/jjuanrivvera/atlassian-cli) | Jira, Confluence, JSM, Jira Software | all 1,143 documented operations, Cloud and Data Center |
 
 They ship with Homebrew taps and Scoop buckets, cosign-signed releases with SBOMs, and MCP servers so AI agents can drive them safely.
 
@@ -41,9 +44,9 @@ They ship with Homebrew taps and Scoop buckets, cosign-signed releases with SBOM
 ## All Repositories
 
 <details>
-<summary>CLIs & agent tooling (10 repos)</summary>
+<summary>CLIs & agent tooling (14 repos)</summary>
 
-- cliwright, tgctl, slackctl, n8n-cli, lemon-squeezy-cli, alegra-cli, canvas-cli, adguard-cli
+- cliwright, tgctl, slackctl, n8n-cli, lemon-squeezy-cli, alegra-cli, canvas-cli, adguard-cli, garminctl, wootctl, atlassian-cli
 - edc, plexus, tgctl-claude-channel
 - Plus Homebrew taps and Scoop buckets for each distributed CLI
 </details>
