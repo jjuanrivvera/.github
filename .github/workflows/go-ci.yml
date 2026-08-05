@@ -9,10 +9,19 @@
 #      govulncheck runs against an already-patched stdlib and stays green even when the repo's
 #      declared toolchain floor is behind — the CVE hides. Reading the floor from go.mod makes CI
 #      test what users actually build, and go red when the floor needs a bump.
-#   2. Build golangci-lint / gosec / govulncheck FROM SOURCE with this job's Go (@latest), never the
-#      prebuilt actions. The prebuilt binaries lag the toolchain and reject a module already on the
-#      next Go release ("configuration contains invalid elements").
+#   2. Build golangci-lint / gosec / govulncheck FROM SOURCE with this job's Go, never the prebuilt
+#      actions. The prebuilt binaries lag the toolchain and reject a module already on the next Go
+#      release ("configuration contains invalid elements").
+#   3. golangci-lint is PINNED; gosec and govulncheck float on @latest. A new lint check turning
+#      every repo in the fleet red at once — no code change, and nothing to bisect because the
+#      binary is built fresh each run — is pure friction, so linter upgrades happen as a reviewable
+#      bump here. The scanners are the opposite case: going red on a newly published CVE or rule is
+#      the whole point, so pinning them would hide exactly what they exist to find.
 name: Go CI
+
+env:
+  # Gates lint for every repo in the fleet — bump deliberately, not reflexively.
+  GOLANGCI_LINT_VERSION: v2.12.2
 
 on:
   workflow_call:
@@ -57,7 +66,7 @@ jobs:
       - run: go vet ./...
       - name: golangci-lint (built from source with this job's Go)
         run: |
-          go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
+          go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@${GOLANGCI_LINT_VERSION}
           golangci-lint run ./...
       - name: docs-gen drift check
         if: ${{ inputs.run-docs-check }}
